@@ -2,30 +2,30 @@
 A plugin to create breakdowns of netflow traffic based on source/destination IPs, interfaces and ASNs.
 
 # History
-This project was written to be used by a national ISP in order to process netflow data from border routers and help with traffic balancing and generate reports with traffic per ASN. It was written between 2007-2009 with tweaks throughout the years. It is currently no longer in use (replaced with Arbor/Netscout SP) so this is why it's being released to the general public. Sadly, large chunks of the code have poor quality - especially the web interface (sorry, I was young and inexperineced), and also it wasn't designed to be generic, so things are hardcoded and may need tweaking for you. Sadly, due to lack of time, I can't support and extend it anymore, but the web interface should be rewritten from scratch. Also, it could move away from storing data in rrd files, and could be (easily) extended to write data to a database (influxdb for instance) and present it in modern visualisation tools like Grafana.
+This project was written to be used by a national ISP in order to process netflow data from border routers and help with traffic balancing and generate reports with traffic per ASN. It was written between 2007-2009 with tweaks throughout the years. It is currently no longer in use (replaced with Arbor/Netscout SP) so this is why it's being released to the general public. Sadly, large chunks of the code have poor quality - especially the web interface (sorry, I was young and inexperienced), and also it wasn't designed to be generic, so things are hardcoded and may need tweaking for you. Sadly, due to lack of time, I can't support and extend it anymore, but the web interface should be rewritten from scratch. Also, it could move away from storing data in rrd files, and could be (easily) extended to write data to a database (influxdb for instance) and present it in modern visualisation tools like Grafana.
 
 # Screenshots
 Here are some screenshots to give you an idea what the web interface can show:
 
-![Backend execution time](images/1.png)
+![Backend execution time](screenshots/1.png)
 Clicking the `Execution time` button will show you how long the backend plugin takes to go through and extract the data. It's best if it finishes before 5 minutes. If it exceeds 10 minutes you may run into avalanche effect (having past instances still running).
 The arrows in the picture point to the menu, showing entries for each Router, its comment, sample rate and list of interfaces (extracted from plugin configuration)
 
 
-![Traffic for specific interface](images/2.png)
+![Traffic for specific interface](screenshots/2.png)
 Clicking on an interface from a router will display a table with a column of source prefixes (if configured), destination prefixes (if configured), Internet AS and Local AS (if tops are enabled). The new and old labels show you which entries have been updated in the past 5 minutes.
 
-![Traffic for a specific AS traffic on an interface](images/3.png)
+![Traffic for a specific AS traffic on an interface](screenshots/3.png)
 Hovering the mouse over an AS number will give you its name (via whois), and clicking on it will show you traffic of that AS that passed through the interface. The holes/gaps you see in the graph are caused by the fact that during that time period the AS was no longer in top 10 for that interface and data was not collected. This is normal behavior.
 
-![Traffic for a specific prefix on an interface](images/4.png)
+![Traffic for a specific prefix on an interface](screenshots/4.png)
 Clicking on a prefix will show you its traffic based on netflow data that passed on that specific interface. Useful for knowing how to balance traffic in case of upstream congestion.
 
-![Top AS Upload/Download](images/5.png)
+![Top AS Upload/Download](screenshots/5.png)
 Generates a pie chart with the traffic distribution per AS number based on the last 5 minutes of traffic. AS65536 has a special meaning and means "Traffic that goes to other ASes that didn't make it in the top".
 
-![Top custom AS](images/6.png)
-![Top custom AS Download](images/7.png)
+![Top custom AS](screenshots/6.png)
+![Top custom AS Download](screenshots/7.png)
 You can also generate the report based on a time interval and specific interface.
 
 
