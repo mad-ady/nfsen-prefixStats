@@ -1,0 +1,8 @@
+frontend/pics/*
+frontend/rrds/*
+frontend/temporary_pictures/*
+.vstags
+
+!frontend/pics/.gitkeep 
+!frontend/rrds/.gitkeep 
+!frontend/temporary_pictures/.gitkeep 
