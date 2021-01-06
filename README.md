@@ -107,6 +107,10 @@ chmod g+w /var/www/html/statistics/pics /var/www/html/statistics/rrds /var/www/h
 );
 ```
 
+# Configuration
+Please thoroughly read this configuration template: 
+https://github.com/mad-ady/nfsen-prefixStats/blob/main/configuration/prefixStats.default.conf
+
 # Logs
 The plugin logs to `/var/log/prefixStats.log`, and is quite noisy. Add an entry to do log rotation:
 ```
